@@ -1,0 +1,83 @@
+<html>
+<!-- SHOPPING APP HOME -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="Banner">
+        <h1>Cart View
+        </h1>
+    </div>
+
+    <ul class="NavButtons">
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/viewcart">View Cart</a></li>
+        <li><a href="/viewprofile">View Profile</a></li>
+        <li><a href="/home">Home</a></li>
+    </ul>
+
+    <div class="view">
+
+        <div class="content primary">
+            <h2>Profile Information</h2>
+
+            <% if(_userDetails){ %>
+            <div style="margin-left:10px;">
+                Name: <%= _userDetails['firstname'] %> <%= _userDetails['lastname'] %> <br />
+                Address: <%= _userDetails['address'] %><br />
+                Username: <%= _userDetails['username'] %><br />
+            </div>
+            <% } %>
+
+            <h2>Receipt History Search</h2>
+            <p style="margin-left:10px;"><b>Select a date range to get purchase history</b></p>
+            <form method="GET" action="/viewprofile">
+
+                <label for="date_from"><b>Date From</b></label>
+                <input type="date" name="date_from" required>
+
+                <label for="date_to"><b>Date To</b></label>
+                <input type="date" name="date_to" required>
+
+                <input type="submit" value="Search Receipts" class="submitButton">
+            </form>
+            <% if(_receipts){ %>
+            <% if( _receipts.length>0 ){ %>
+            <h1>Receipts</h1>
+            <% _receipts.forEach(function (receipt) { %>
+            <table class="receiptTable">
+                <tr>
+                    <th>Purchase Date</th>
+                    <th>Total Cost</th>
+                    <th>Items</th>
+                </tr>
+                <tr>
+                    <td><%= receipt['purchase_date'] %></td>
+                    <td><%= receipt['grandtotal'] %></td>
+                    <td>
+                        <% receipt['item_list'].forEach(function (item) { %>
+                        <%= item['name'] %> (<%= item['quantity'] %>) <br />
+                        <% }); %>
+                    </td>
+
+                </tr>
+            </table>
+
+            <% }) %>
+            <% } %>
+            <% } %>
+        </div>
+
+
+
+        <% if( _errorMessage ){ %>
+        <div class="content alert">
+            <%= _errorMessage %>
+        </div>
+        <% } %>
+    </div>
+</body>
+
+</html>
