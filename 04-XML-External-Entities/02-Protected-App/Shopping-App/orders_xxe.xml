@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- CONTROL Q TO COMMENT / UNCOMMENT -->
+<!DOCTYPE order [
+   <!ELEMENT address ANY>   
+   <!ELEMENT phone ANY>
+   <!ENTITY company "CSUF">
+   <!ENTITY phone_no SYSTEM "test.txt">
+]>
+
+<order>
+<name> Purina Cat Chow (fish flavor) </name>
+<id>1</id>
+<quantity> 10 </quantity>
+<address> &company; 123 Cat Ave, Cat Land, Cat Country 2341-102</address>
+<phone> &phone_no; </phone>
+</order>

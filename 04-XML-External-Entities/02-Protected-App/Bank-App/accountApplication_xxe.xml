@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- CONTROL Q TO COMMENT / UNCOMMENT -->
+<!DOCTYPE application [
+	<!ELEMENT deposit ANY>   
+	<!ELEMENT label ANY>   
+<!ENTITY label_name SYSTEM "../test.txt">
+]>
+
+<application>
+<deposit>1000.00</deposit>
+<label>&label_name;</label>
+</application>
