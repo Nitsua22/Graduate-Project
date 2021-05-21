@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="Banner">
+        <h1>Welcome back,
+            <%= _accountName %>
+        </h1>
+    </div>
+    <ul class="NavButtons">
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/appconfig?accountAccess=1">config</a></li>
+
+    </ul>
+
+
+    <div class="view">
+        <% if( _accounts.length > 0 ){ %>
+        <div class="content primary">
+            <h1>Account list</h1>
+            <% _accounts.forEach(function (acct) { %>
+            <ul>
+                <li>Account Number: <%= acct['accountNumber'] %></li>
+                <li>Amt: <%= acct['accountAmt'] %></li>
+            </ul>
+            <% }) %>
+        </div>
+
+        <!--
+        <select name="">
+            <% _accounts.forEach(function (acct) { %>
+            <option value="<%= acct['accountNumber'] %>"><%= acct['accountNumber'] %>
+                <% }) %>
+        </select>
+-->
+
+        <div class="content primary">
+            <h1>Account options</h1>
+            <form action="/withdraw" method="POST">
+                <h2>Withdraw</h2>
+                <label for="withdrawamount"><b>Amount</b></label>
+                <!--                
+                    <input type="number" min="0.01" step="0.01" name="withdrawamount">-->
+                <input type="text" name="withdrawamount">
+
+                <br>
+                <br>
+                <label for="withdrawaccount"><b>From Account #</b></label>
+
+                <select name="withdrawaccount">
+                    <% _accounts.forEach(function (acct) { %>
+                    <option value="<%= acct['accountNumber'] %>"><%= acct['accountNumber'] %>
+                        <% }) %>
+                </select>
+                <input type="submit" value="Withdraw" class="submitButton" />
+            </form>
+        </div>
+        <div class="content primary">
+            <form action="/deposit" method="POST">
+                <h2>Deposit</h2>
+                <label for="depositamount"><b>Amount</b></label>
+                <input type="text" name="depositamount">
+                <!--                <input type="number" min="0.01" step="0.01" name="depositamount">-->
+                <br>
+                <br>
+                <label for="depositaccount"><b>From Account #</b></label>
+                <select name="depositaccount">
+                    <% _accounts.forEach(function (acct) { %>
+                    <option value="<%= acct['accountNumber'] %>"><%= acct['accountNumber'] %>
+                        <% }) %>
+                </select>
+                <!--                <input type="text" name="depositaccount">-->
+                <input type="submit" value="Deposit" class="submitButton" />
+            </form>
+        </div>
+        <div class="content primary">
+            <form action="/transfer" method="POST">
+                <h2>Transfer</h2>
+                <label for="transferamount"><b>Amount</b></label>
+                <input type="text" name="transferamount">
+                <!--                <input type="number" min="0.01" step="0.01" name="transferamount">-->
+                <br>
+                <br>
+                <label for="transfersender"><b>From Account #</b></label>
+                <select name="transfersender">
+                    <% _accounts.forEach(function (acct) { %>
+                    <option value="<%= acct['accountNumber'] %>"><%= acct['accountNumber'] %>
+                        <% }) %>
+                </select>
+                <!--                <input type="text" name="transfersender">-->
+                <label for="transferreciever"><b>To Account #</b></label>
+                <select name="transferreciever">
+                    <% _accounts.forEach(function (acct) { %>
+                    <option value="<%= acct['accountNumber'] %>"><%= acct['accountNumber'] %>
+                        <% }) %>
+                </select>
+                <!--                <input type="text" name="transferreciever">-->
+                <input type="submit" value="Transfer" class="submitButton" />
+            </form>
+        </div>
+        <div class="content primary">
+            <form action="/createNew" method="POST">
+                <h2>Create New Account</h2>
+                <label for="amount"><b>Initial Deposit</b></label>
+                <input type="text" name="amount">
+                <input type="submit" value="Create New Account" class="submitButton" />
+            </form>
+        </div>
+
+        <% } %>
+        <% if(_accounts.length === 0 ){ %>
+        <div class="content primary">
+            <h2>Account list</h2>
+            <p>No accounts found! Please create an account.</p>
+            <div class="content primary">
+                <form action="/createNew" method="POST">
+                    <h2>Create New Account</h2>
+                    <label for="amount"><b>Initial Deposit</b></label>
+                    <input type="text" name="amount">
+                    <inputtype="submit" value="Create New Account" class="submitButton" />
+                </form>
+            </div>
+        </div>
+        <% } %>
+        <% if( _errorMessage ){ %>
+        <div class="content alert">
+            <%= _errorMessage %>
+        </div>
+        <% } %>
+    </div>
+</body>
+
+</html>
