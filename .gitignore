@@ -1,0 +1,18 @@
+# Build and Release Folders
+node_modules/
+.settings/
+.project/
+log.txt
+package-lock.json
+Ignore/
+test.js
+test.ejs
+.brackets.json
+*.ova
+*.eslintrc
+*.tmp
+*uploads/
+04-XML-External-Entities/01-Vulnerable-App/Bank-App/test.txt
+04-XML-External-Entities/01-Vulnerable-App/Shopping-App/bulkorder_xxe.xml
+*.project
+CKatnic-GradProject.zip
