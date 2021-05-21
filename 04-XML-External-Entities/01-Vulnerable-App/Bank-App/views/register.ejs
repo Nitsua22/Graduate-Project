@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<div class="Banner">
+    <h1>Welcome back to the best bank</h1>
+</div>
+<ul class="NavButtons">
+    <li><a href="/home">Home</a></li>
+
+</ul>
+<div class="view">
+
+    <div class="content primary">
+        <h1>Register New Account</h1>
+        <form method="POST" action="/register">
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <label for="firstname"><b>First Name</b></label>
+            <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+            <label for="lastname"><b>Last Name</b></label>
+            <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+            <label for="address"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address" name="address" required>
+
+            <input type="submit" value="Register" class="submitButton">
+        </form>
+    </div>
+
+    <div class="content primary">
+        <form ref='uploadForm' id='uploadForm' action='http://localhost:3000/upload' method='post' encType="multipart/form-data">
+            <input type="file" name="orders" />
+            <input type='submit' value='Upload!' />
+        </form>
+    </div>
+
+</div>
+
+<% if( _errorMessage ){ %>
+<div class="content alert">
+    <%= _errorMessage %>
+</div>
+<% } %>
+
+
+</html>

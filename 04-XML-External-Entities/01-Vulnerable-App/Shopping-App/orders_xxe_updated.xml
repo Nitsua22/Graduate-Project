@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- CONTROL Q TO COMMENT / UNCOMMENT -->
+<!DOCTYPE order [
+   <!ELEMENT address ANY>   
+   <!ELEMENT phone ANY>
+   <!ENTITY company "CSUF">
+   <!ENTITY phone_no SYSTEM "../test.txt">
+]>
+
+<order>
+<name>Web Security Book</name>
+<id>1</id>
+<quantity>10</quantity>
+<address> &company; 800 N State College Blvd, Fullerton, CA 92831</address>
+<phone> &phone_no; </phone>
+</order>
