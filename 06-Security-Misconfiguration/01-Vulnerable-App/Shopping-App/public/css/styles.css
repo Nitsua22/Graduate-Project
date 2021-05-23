@@ -1,0 +1,153 @@
+/* colors:
+    universityblue: #00274C
+    universitywhite: #FFFFFF
+    universityorange: #E17000
+https://www.fullerton.edu/webstandards/default/Colors.php
+*/
+
+
+html {
+    color: #00274C;
+}
+
+body {
+    background-image: url('csuf_tsu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.Banner {
+    background-color: white;
+    font: 26pt;
+    text-align: center;
+    padding: .5em 1em;
+
+}
+
+div.view {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+div.content {
+    background-color: white;
+}
+
+div.content.primary {
+    width: 100%;
+    color: #00274C;
+}
+
+div.content.primary.left {
+    width: 50%;
+}
+
+div.content.primary.right {
+    width: 50%;
+}
+
+div.content.primary h1,
+div.content.primary h2 {
+    padding: 10px;
+}
+
+div.content.primary label {
+    padding-left: 10px;
+}
+
+div.content.primary ul {
+    padding-bottom: 10px;
+}
+
+div.content.secondary {}
+
+div.content.secondary p {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+div.content.alert {
+    position: absolute;
+    top: 105px;
+    padding: 0.5em;
+    color: red;
+    font-weight: bold;
+    border: 1px solid red;
+}
+
+
+div.NavButtons a,
+.submitButton,
+.registerButton {
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #00274C;
+    color: white;
+    padding: 16px 20px;
+    margin: 0px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+}
+
+div.NavButtons a {
+    position: absolute;
+    left: 90%;
+    top: 104px;
+    width: 65px;
+    text-align: center;
+}
+
+
+/* input fields */
+input[type=text],
+input[type=number],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+
+ul.NavButtons {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+ul.NavButtons li {
+    float: right;
+}
+
+ul.NavButtons li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #00274C;
+    padding: 16px 20px;
+}
+
+ul.NavButtons li a:hover {
+    background-color: #E17000;
+}

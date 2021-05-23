@@ -1,0 +1,44 @@
+<html>
+<!-- SHOPPING APP HOME -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="Banner">
+        <h1>Cart View
+        </h1>
+    </div>
+
+    <ul class="NavButtons">
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/viewcart">View Cart</a></li>
+        <li><a href="/viewprofile">View Profile</a></li>
+        <li><a href="/home">Home</a></li>
+    </ul>
+
+    <div class="view">
+
+        <div class="content primary">
+            <form ref='uploadForm' 
+            id='uploadForm' 
+			action='/upload' 
+			method='post' 
+			encType="multipart/form-data">
+                <input type="file" name="sampleFile" />
+                <input type='submit' value='Upload!' />
+            </form>	
+        </div>
+
+
+
+        <% if( _errorMessage ){ %>
+        <div class="content alert">
+            <%= _errorMessage %>
+        </div>
+        <% } %>
+    </div>
+</body>
+
+</html>

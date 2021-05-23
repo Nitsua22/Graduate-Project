@@ -1,0 +1,15 @@
+C:\Windows\System32\cmd.exe /k  "set MYSQL_HOME=C:\Program Files\MariaDB 10.5\data\&& set PATH=C:\Program Files\MariaDB 10.5\bin\;%PATH%;&&echo Setting environment for MariaDB 10.5 (x64) "
+
+mysql -u root -p -h localhost
+
+root
+
+source createdb.sql
+
+source populatedb.sql
+
+
+
+<body onload=alert("something")>;
+
+<script>alert(1)</script>
