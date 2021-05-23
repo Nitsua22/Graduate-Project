@@ -1,0 +1,88 @@
+<html>
+<!-- SHOPPING APP HOME -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="Banner">
+        <h1>Cart View
+        </h1>
+    </div>
+
+
+    <ul class="NavButtons">
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/viewcart">View Cart</a></li>
+        <li><a href="/viewprofile">View Profile</a></li>
+        <li><a href="/home">Home</a></li>
+    </ul>
+
+    <div class="view">
+        <% if( _cart.length>0 ){ %>
+        <div class="content primary right">
+            <h1>Cart</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                <% _cart.forEach(function (item) { %>
+                <tr>
+                    <td><a href="/product?name=<%= item['name'] %>"><%= item['name'] %></a></td>
+                    <td><%= item['quantity'] %></td>
+                    <td>$<%= item['price'] %></td>
+                </tr>
+                <% }) %>
+
+            </table>
+            <p style="padding:5px;margin:5px;color:#00274C;font-weight:bold;">Subtotal:
+                <% var subtotal = 0;  %>
+                <% for (var i = 0; i < _cart.length; i++) { %>
+                <% subtotal += parseFloat(_cart[i]['price']) * parseInt(_cart[i]['quantity']) ; %>
+                <% } %>
+                $<%= subtotal.toFixed(2) %>
+            </p>
+
+        </div>
+
+
+        <div class="content primary">
+            <h2>Checkout</h2>
+
+            <form method="POST" action="/checkout">
+
+
+                <label for="shipping_recipient"><b>Shipping Recipient</b></label>
+                <input type="text" placeholder="Enter Name of Recipient" name="shipping_recipient" required>
+
+                <label for="shipping_address"><b>Shipping Address</b></label>
+                <input type="text" placeholder="Enter Shipping Address" name="shipping_address" required>
+
+                <label for="payment_card_num"><b>Credit Card Number</b></label>
+                <input type="text" placeholder="Enter Credit Card Number" name="payment_card_num" required>
+
+                <label for="payment_card_exp"><b>Credit Card Expiration Date</b></label>
+                <input type="text" placeholder="Enter Credit Card Expiration Date (mm/yyyy)" name="payment_card_exp" required>
+
+                <input type="submit" value="Checkout" class="submitButton">
+            </form>
+        </div>
+
+
+        <% } %>
+
+
+
+        <% if( _errorMessage ){ %>
+        <div class="content alert">
+            <%= _errorMessage %>
+        </div>
+        <% } %>
+    </div>
+</body>
+
+</html>
