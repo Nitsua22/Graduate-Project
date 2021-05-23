@@ -1,0 +1,9 @@
+POST / HTTP/1.1
+Content-Type: multipart/form-data; boundary=--------1566035451
+Content-Length: 137
+
+----------1566035451
+Content-Disposition: form-data; name="__proto__.toString"; filename="filename"
+
+content
+----------1566035451--

