@@ -1,8 +1,8 @@
 # Graduate-Project
 
-Installation Instructions navigate to the folder of the application you would like to start. Example:
-
-cd \Web-Security-Project-Root\01-Injection\01-Vulnerable-App\Bank-App
+Installation Instructions: 
+navigate to the folder of the application you would like to start. Example:
+  cd \Web-Security-Project-Root\01-Injection\01-Vulnerable-App\Bank-App
 
 then, install the dependencies with the following command:
 
